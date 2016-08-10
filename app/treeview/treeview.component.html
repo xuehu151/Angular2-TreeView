@@ -1,0 +1,41 @@
+<li *ngFor="let dir of directories">
+    <input type="hidden" value="true" *ngIf="dir.subMenus" />
+    <a>
+        <i [ngClass]="dir.iconClass"></i>
+        <span>{{dir.title}}</span>
+        <span *ngIf="dir.notice != null && dir.notice != 0">
+                {{dir.notice}}
+    </span>
+    </a>
+    <ul *ngIf="dir.subMenus" [directories]="dir.subMenus" tree-view>
+
+    </ul>
+</li>
+
+<style>
+    div > ul > li {
+        color: #0094ff;
+    }
+    
+    ...
+</style>
+<div>
+    <ul>
+        <li>
+            ...
+        </li>
+    </ul>
+</div>
+
+<!-- 加入 <tree-view></tree-view> 后  -->
+
+
+<div>
+    <tree-view>
+        <ul>
+            <li>
+                ...
+            </li>
+        </ul>
+    </tree-view>
+</div>
